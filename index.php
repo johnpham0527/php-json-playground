@@ -7,9 +7,12 @@ $file = file_get_contents('./data/qplFY2019Programs.json', true);
 // $data->age = 30;
 // $data->city = "New York";
 
-$json_a = json_decode($file, true);
+$allData = json_decode($file, true);
+
+$month = $allData["Month"];
+$familySessions = $allData["Family Sessions"];
 
 header('Content-Type: application/json');
-echo json_encode($json_a["Month"]);
+echo json_encode($familySessions[0]);
 
 ?>

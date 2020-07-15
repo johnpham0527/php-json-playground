@@ -9,10 +9,10 @@ $file = file_get_contents('./data/qplFY2019Programs.json', true);
 
 $allData = json_decode($file, true);
 
-$month = $allData["Month"];
-$familySessions = $allData["Family Sessions"];
+// $month = $allData["Month"];
+// $familySessions = $allData["Family Sessions"];
 
 header('Content-Type: application/json');
-echo json_encode($familySessions[0]);
+// echo json_encode($familySessions[0]);
 
 ?>

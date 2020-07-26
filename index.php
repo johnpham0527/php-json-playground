@@ -1,13 +1,24 @@
 <?php
-            $data = new \stdClass();
+    header('Content-Type: application/json');
 
-            $file = file_get_contents('./data/qplFY2019Programs.json', true);
+    $data = new \stdClass();
+    $file = file_get_contents('./data/qplFY2019Programs.json', true);
+    $allData = json_decode($file, true);
 
-            $allData = json_decode($file, true);
+    /*** Programmatically output array element by index */ 
+    // $program = $_GET["program"];
+    // echo json_encode($allData[$program]);
 
-            header('Content-Type: application/json');
+    /*** Programmatically filter by month */
+    $month = $_GET["month"];    
+    $output = [];
 
-            $program = htmlspecialchars($_GET["program"]);
+    foreach($allData as $element) {
+        if ($element["Month"] == $month) {
+            array_push($output, $element);
+        }
+    }
 
-            echo json_encode($allData[$program]);
+    echo json_encode($output);
+
 ?>   

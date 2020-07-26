@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>PHP JSON Playground</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <?php
+<?php
             $data = new \stdClass();
 
             $file = file_get_contents('./data/qplFY2019Programs.json', true);
@@ -23,9 +15,5 @@
             header('Content-Type: application/json');
             // echo json_encode($familySessions[0]);
 
-            echo $allData[0];
-
-    ?>   
-    </body>
-</html>
-
+            echo json_encode($allData[0]);
+?>   

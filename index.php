@@ -10,14 +10,25 @@
     // echo json_encode($allData[$program]);
 
     /*** Programmatically filter by month */
-    $month = $_GET["month"];    
+    $month = (isset($_GET["month"]) && !empty($_GET["month"])) ? $_GET["month"] : false;    
+    //$month = $_GET["month"];
     $output = [];
 
-    foreach($allData as $element) {
-        if ($element["Month"] == $month) {
-            array_push($output, $element);
+
+    if (!$month) {
+        $output = $allData;
+    }
+    else {
+        foreach($allData as $element) {
+            if ($element["Month"] == $month) {
+                array_push($output, $element);
+            }
         }
     }
+
+    //$programPresenter = $_GET["presenter"];
+
+
 
     echo json_encode($output);
 /*

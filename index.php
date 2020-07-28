@@ -23,5 +23,7 @@
 /*
 Build a front end to GET, filter, and output JSON data nicely into tables 
 Build a back end that finds all dictionary keys for each database variable
+Use an associative array to keep track of keys. Print out only keys.
+Store keys in their own JSON file. 
 */
 ?>   

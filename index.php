@@ -27,10 +27,23 @@
     }
 
     //$programPresenter = $_GET["presenter"];
+    $programPresenter = (isset($_GET["presenter"]) && !empty($_GET["presenter"])) ? $_GET["presenter"] : false;
+    $output2 = [];
 
 
+    if (!$programPresenter) {
+        $output2 = $output;
+    }
+    else {
+        foreach($output as $element) {
+            if ($element["Program Presenter"] == $programPresenter) {
+                array_push($output2, $element);
+            }
+        }
+    }
 
-    echo json_encode($output);
+
+    echo json_encode($output2);
 /*
 Build a front end to GET, filter, and output JSON data nicely into tables 
 Build a back end that finds all dictionary keys for each database variable

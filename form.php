@@ -2,6 +2,8 @@
 <html>
 <head></head>
 <body>
-<form></form>
+<form>
+<label for="program-type">Program Type</label>
+</form>
 </body>
 </html>
